@@ -1,13 +1,15 @@
-
 <?php
 
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Public Home Page (Course Registration Portal)
+Route::get('/', [PublicController::class, 'index']);
+
+// Student Course Registration Route
+Route::post('/courses/{course}/register', [PublicController::class, 'storeRegistration'])->name('register.course');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
