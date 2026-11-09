@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    protected $fillable = ['title', 'description', 'duration'];
+    use HasFactory;
 
-    public function registrations()
-    {
-        return $this->hasMany(Registration::class);
-    }
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+        'duration',
+    ];
 }
